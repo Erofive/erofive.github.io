@@ -1,0 +1,51 @@
+{% case page.layout %}
+{% when 'index' %}
+  {% capture title %}{{ site.title }}{% if site.index_with_subtitle and site.subtitle %} - {{site.subtitle }}{% endif %}{% endcapture %}
+{% when 'post' %}
+  {% capture title %}{{ page.title }} | {{ site.title }}{% endcapture %}
+{% when 'page' %}
+  {% capture title %}
+    {% assign page_title_suffix = ' | ' | append: site.title %}
+    {% if page.type == "categories" and page.title == nil %}
+      {{ __.title.categories | append: page_title_suffix }}
+    {% elsif page.type == "tags" and page.title == nil %}
+      {{ __.title.tags | append: page_title_suffix }}
+    {% elsif page.type == "about" and page.title == nil %}
+      {{ __.title.about | append: page_title_suffix }}
+    {% elsif page.type == "gallery" and page.title == nil %}
+      {{ __.title.gallery | append: page_title_suffix }}
+    {% elsif page.type == "album" and page.title == nil %}
+      {{ __.title.album | append: page_title_suffix }}
+    {% elsif page.type == "notice" and page.title == nil %}
+      {{ __.title.notice | append: page_title_suffix }}
+    {% elsif page.type == "supporter" and page.title == nil %}
+      {{ __.title.supporter | append: page_title_suffix }}
+    {% elsif page.type == "gifs" and page.title == nil %}
+      {{ __.title.gifs | append: page_title_suffix }}
+    {% else %}
+      {{ page.title | append: page_title_suffix }}
+    {% endif %}
+  {% endcapture %}
+{% when 'archive' %}
+  {% capture title %}{{ __.title.archives }} | {{ site.title }}{% endcapture %}
+{% when 'category' %}
+  {% capture title %}{{ __.title.category }} | {{ site.title }}{% endcapture %}
+{% when 'tag' %}
+  {% capture title %}{{ __.title.tag }} | {{ site.title }}{% endcapture %}
+{% when 'schedule' %}
+  {% capture title %}{{ __.title.schedule }} | {{ site.title }}{% endcapture %}
+{% when 'gallery' %}
+  {% capture title %}{{ __.title.gallery }} | {{ site.title }}{% endcapture %}
+{% when 'resources' %}
+  {% capture title %}{{ __.title.resources }} | {{ site.title }}{% endcapture %}
+{% when 'album' %}
+  {% capture title %}{{ __.title.album }} | {{ site.title }}{% endcapture %}
+{% when 'notice' %}
+  {% capture title %}{{ __.title.notice }} | {{ site.title }}{% endcapture %}
+{% when 'supporter' %}
+  {% capture title %}{{ __.title.supporter }} | {{ site.title }}{% endcapture %}
+{% when 'gifs' %}
+  {% capture title %}{{ __.title.gifs }} | {{ site.title }}{% endcapture %}
+{% endcase %}
+
+{% assign title = title | strip_newlines %}

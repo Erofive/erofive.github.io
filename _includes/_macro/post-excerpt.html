@@ -1,0 +1,5 @@
+{% if site.highlight.line_number %}
+  {% assign source = post.excerpt %}
+{% else %}
+  {{ post.excerpt }}
+{% endif %}

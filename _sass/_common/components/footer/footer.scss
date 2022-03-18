@@ -1,0 +1,27 @@
+.footer {
+  font-size: 14px;
+  // color: $grey-dark;
+  color: #333;
+
+  img { border: none; }
+}
+
+.footer-inner { text-align: center; }
+
+.with-love {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.powered-by,
+.theme-info { display: inline-block; }
+.theme-link { color: #333; }
+
+.powered-by {
+  margin-right: 10px;
+
+  &::after {
+    content: "|";
+    padding-left: 10px;
+  }
+}

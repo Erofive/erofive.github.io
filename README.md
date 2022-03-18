@@ -1,0 +1,1 @@
+forked from [jekyll-theme-next](https://github.com/Simpleyyt/jekyll-theme-next)
